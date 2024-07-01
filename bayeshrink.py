@@ -33,7 +33,7 @@ def bayes_shrink_denoise(image, wavelet='haar'):
     
     return denoised_image.astype(np.uint8)
 
-image = cv2.imread(r'C:\Users\Shaur\OneDrive\Desktop\lena.png', cv2.IMREAD_GRAYSCALE)
+image = cv2.imread('image_path', cv2.IMREAD_GRAYSCALE)
 
 noisy_image = add_gaussian_noise(image)
 
