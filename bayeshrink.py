@@ -2,6 +2,7 @@ import pywt
 import numpy as np
 import cv2
 import matplotlib.pyplot as plt
+from skimage.metrics import mean_squared_error, peak_signal_noise_ratio
 
 def add_gaussian_noise(image, mean=0, std=40):
     # Generate Gaussian noise
@@ -38,6 +39,9 @@ image = cv2.imread('image_path', cv2.IMREAD_GRAYSCALE)
 noisy_image = add_gaussian_noise(image)
 
 denoised_image = bayes_shrink_denoise(noisy_image)
+
+print('Mean Squared Error: ', mean_squared_error(image,denoised_image))
+print('Peak Signal to Noise Ratio: ', peak_signal_noise_ratio(image,denoised_image))
 
 plt.subplot(1, 3, 1)
 plt.title('Original Image')
